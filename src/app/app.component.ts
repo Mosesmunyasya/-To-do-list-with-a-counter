@@ -11,17 +11,30 @@ import { CommonModule } from "@angular/common";
 })
 
 export class AppComponent {
+cutItem() {
+throw new Error('Method not implemented.');
+}
+onMouseLeave(){
+  this.greeting = "";
+}
+onMouseEnter() {
+ this.greeting = "hallohallo"
+}
 newItemInput: any;
 addItem(...items: { description: string, done: boolean }[]) {
   // Use the push method to add all items to the allItems array
   this.allItems.push(...items);
 }
-
+isBlinking: boolean = false;
+toggleBlinking() {
+  this.isBlinking = !this.isBlinking;
+}
 
 // addItem(item: any) {
 //   this.allItems.push(item);
 
 // }
+public greeting = ""
   componentTitle = "Logical addition";
 
   filter: 'all' | 'active' | 'done' = 'all';

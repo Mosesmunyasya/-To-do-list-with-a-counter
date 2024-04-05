@@ -12,6 +12,7 @@
 
  <!-- <button class="btn-primary" (click)="addItem(newItem.value)">Add</button> -->
  <button class="btn-primary" (click)="addItem({ description: newItem.value, done: false }); newItem.value = ''">Add</button>
+ <!-- <button class="blinking-button" [hidden]="!isBlinking" (click)="toggleBlinking()">Click Me</button> -->
 
 <!-- <button class="btn-primary" (click)="addItem(newItemInput.value); newItemInput.value = ''">Add</button> -->
 
@@ -22,10 +23,13 @@
     [class.active]="filter == 'all'"
     (click)="filter = 'all'">
     All
-  </button>
+  </button> 
+  
+
+  <button (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">Press</button>{{greeting}}
 
   <button
-    class="btn btn-menu"
+    class="btn btn-menu"  
     [class.active]="filter == 'active'"
     (click)="filter = 'active'">
     To Do
@@ -37,6 +41,11 @@
     (click)="filter = 'done'">
     Done
   </button>
+  <button class="btn-primary" (click)="addItem({ description: newItem.value, done: false }); newItem.value = ''">Done</button>
+
+<button class="btn-primary blinking-cut-button" (click)="cutItem()">fix</button>
+
+  
   <!-- Like icon with counter -->
 <div class="like-icon" style="color: blue;" (click)="increaseLikes()">
   <i class="fas fa-thumbs-up"></i>
